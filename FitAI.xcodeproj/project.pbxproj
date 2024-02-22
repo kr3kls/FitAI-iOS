@@ -1,0 +1,403 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B98D2F612B8554E500DCEF8F /* FitAIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98D2F602B8554E500DCEF8F /* FitAIApp.swift */; };
+		B98D2F632B8554E500DCEF8F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98D2F622B8554E500DCEF8F /* ContentView.swift */; };
+		B98D2F652B8554E600DCEF8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B98D2F642B8554E600DCEF8F /* Assets.xcassets */; };
+		B98D2F682B8554E600DCEF8F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B98D2F672B8554E600DCEF8F /* Preview Assets.xcassets */; };
+		B98D2F6F2B85554C00DCEF8F /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98D2F6E2B85554C00DCEF8F /* UserModel.swift */; };
+		B98D2F712B85557F00DCEF8F /* AWSService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98D2F702B85557F00DCEF8F /* AWSService.swift */; };
+		B98D2F732B8555A200DCEF8F /* EditUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98D2F722B8555A200DCEF8F /* EditUserView.swift */; };
+		B98D2F752B8555B600DCEF8F /* FeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98D2F742B8555B600DCEF8F /* FeedbackView.swift */; };
+		B98D2F772B8555CE00DCEF8F /* MenuDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98D2F762B8555CE00DCEF8F /* MenuDetailView.swift */; };
+		B98D2F792B8555EC00DCEF8F /* MenuItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98D2F782B8555EC00DCEF8F /* MenuItemModel.swift */; };
+		B98D2F7B2B85560200DCEF8F /* RestaurantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98D2F7A2B85560200DCEF8F /* RestaurantModel.swift */; };
+		B98D2F7D2B85561800DCEF8F /* RestaurantListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98D2F7C2B85561800DCEF8F /* RestaurantListView.swift */; };
+		B98D2F812B856E2E00DCEF8F /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B98D2F802B856E2E00DCEF8F /* Launch Screen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B98D2F5D2B8554E500DCEF8F /* FitAI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitAI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B98D2F602B8554E500DCEF8F /* FitAIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitAIApp.swift; sourceTree = "<group>"; };
+		B98D2F622B8554E500DCEF8F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B98D2F642B8554E600DCEF8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B98D2F672B8554E600DCEF8F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B98D2F6E2B85554C00DCEF8F /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		B98D2F702B85557F00DCEF8F /* AWSService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSService.swift; sourceTree = "<group>"; };
+		B98D2F722B8555A200DCEF8F /* EditUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserView.swift; sourceTree = "<group>"; };
+		B98D2F742B8555B600DCEF8F /* FeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackView.swift; sourceTree = "<group>"; };
+		B98D2F762B8555CE00DCEF8F /* MenuDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetailView.swift; sourceTree = "<group>"; };
+		B98D2F782B8555EC00DCEF8F /* MenuItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemModel.swift; sourceTree = "<group>"; };
+		B98D2F7A2B85560200DCEF8F /* RestaurantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantModel.swift; sourceTree = "<group>"; };
+		B98D2F7C2B85561800DCEF8F /* RestaurantListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListView.swift; sourceTree = "<group>"; };
+		B98D2F802B856E2E00DCEF8F /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B98D2F5A2B8554E500DCEF8F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B98D2F542B8554E500DCEF8F = {
+			isa = PBXGroup;
+			children = (
+				B98D2F5F2B8554E500DCEF8F /* FitAI */,
+				B98D2F5E2B8554E500DCEF8F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B98D2F5E2B8554E500DCEF8F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B98D2F5D2B8554E500DCEF8F /* FitAI.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B98D2F5F2B8554E500DCEF8F /* FitAI */ = {
+			isa = PBXGroup;
+			children = (
+				B98D2F602B8554E500DCEF8F /* FitAIApp.swift */,
+				B98D2F742B8555B600DCEF8F /* FeedbackView.swift */,
+				B98D2F622B8554E500DCEF8F /* ContentView.swift */,
+				B98D2F722B8555A200DCEF8F /* EditUserView.swift */,
+				B98D2F7C2B85561800DCEF8F /* RestaurantListView.swift */,
+				B98D2F7A2B85560200DCEF8F /* RestaurantModel.swift */,
+				B98D2F762B8555CE00DCEF8F /* MenuDetailView.swift */,
+				B98D2F782B8555EC00DCEF8F /* MenuItemModel.swift */,
+				B98D2F642B8554E600DCEF8F /* Assets.xcassets */,
+				B98D2F662B8554E600DCEF8F /* Preview Content */,
+				B98D2F6E2B85554C00DCEF8F /* UserModel.swift */,
+				B98D2F702B85557F00DCEF8F /* AWSService.swift */,
+				B98D2F802B856E2E00DCEF8F /* Launch Screen.storyboard */,
+			);
+			path = FitAI;
+			sourceTree = "<group>";
+		};
+		B98D2F662B8554E600DCEF8F /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				B98D2F672B8554E600DCEF8F /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B98D2F5C2B8554E500DCEF8F /* FitAI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B98D2F6B2B8554E600DCEF8F /* Build configuration list for PBXNativeTarget "FitAI" */;
+			buildPhases = (
+				B98D2F592B8554E500DCEF8F /* Sources */,
+				B98D2F5A2B8554E500DCEF8F /* Frameworks */,
+				B98D2F5B2B8554E500DCEF8F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FitAI;
+			productName = FitAI;
+			productReference = B98D2F5D2B8554E500DCEF8F /* FitAI.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B98D2F552B8554E500DCEF8F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					B98D2F5C2B8554E500DCEF8F = {
+						CreatedOnToolsVersion = 15.2;
+					};
+				};
+			};
+			buildConfigurationList = B98D2F582B8554E500DCEF8F /* Build configuration list for PBXProject "FitAI" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B98D2F542B8554E500DCEF8F;
+			productRefGroup = B98D2F5E2B8554E500DCEF8F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B98D2F5C2B8554E500DCEF8F /* FitAI */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B98D2F5B2B8554E500DCEF8F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B98D2F812B856E2E00DCEF8F /* Launch Screen.storyboard in Resources */,
+				B98D2F682B8554E600DCEF8F /* Preview Assets.xcassets in Resources */,
+				B98D2F652B8554E600DCEF8F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B98D2F592B8554E500DCEF8F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B98D2F632B8554E500DCEF8F /* ContentView.swift in Sources */,
+				B98D2F7B2B85560200DCEF8F /* RestaurantModel.swift in Sources */,
+				B98D2F732B8555A200DCEF8F /* EditUserView.swift in Sources */,
+				B98D2F7D2B85561800DCEF8F /* RestaurantListView.swift in Sources */,
+				B98D2F6F2B85554C00DCEF8F /* UserModel.swift in Sources */,
+				B98D2F792B8555EC00DCEF8F /* MenuItemModel.swift in Sources */,
+				B98D2F772B8555CE00DCEF8F /* MenuDetailView.swift in Sources */,
+				B98D2F612B8554E500DCEF8F /* FitAIApp.swift in Sources */,
+				B98D2F712B85557F00DCEF8F /* AWSService.swift in Sources */,
+				B98D2F752B8555B600DCEF8F /* FeedbackView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		B98D2F692B8554E600DCEF8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B98D2F6A2B8554E600DCEF8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B98D2F6C2B8554E600DCEF8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"FitAI/Preview Content\"";
+				DEVELOPMENT_TEAM = 5YAJR7M534;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.5;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.psu.nittanyaichallenge.athleantech.FitAI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		B98D2F6D2B8554E600DCEF8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"FitAI/Preview Content\"";
+				DEVELOPMENT_TEAM = 5YAJR7M534;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.5;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.psu.nittanyaichallenge.athleantech.FitAI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B98D2F582B8554E500DCEF8F /* Build configuration list for PBXProject "FitAI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B98D2F692B8554E600DCEF8F /* Debug */,
+				B98D2F6A2B8554E600DCEF8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B98D2F6B2B8554E600DCEF8F /* Build configuration list for PBXNativeTarget "FitAI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B98D2F6C2B8554E600DCEF8F /* Debug */,
+				B98D2F6D2B8554E600DCEF8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B98D2F552B8554E500DCEF8F /* Project object */;
+}
