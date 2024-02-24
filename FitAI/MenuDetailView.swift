@@ -15,36 +15,47 @@ struct MenuDetailView: View {
     
     var body: some View {
         NavigationView {
-            if isLoading {
-                ProgressView("Fitting...")
-                    .onAppear {
-                        fetchMenu(for: restaurant.id, user: user)
+            VStack {
+                MapView(restaurant: restaurant)
+                    .frame(height: 200)
+                    .clipShape(RoundedRectangle(cornerRadius: 15))
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 15).stroke(.gray, lineWidth: 4)
                     }
-            } else {
-                List(menuResponse.menuItems.indices, id: \.self) { index in
-                    if let item = safeIndex(index) {
-                        VStack(alignment: .leading) {
-                            Button(action: {
-                                toggleExpansion(for: index)
-                            }) {
-                                Text(item.name)
-                                    .foregroundColor(textColor(for: item.category))
-                            }
-                            
-                            if item.isExpanded {
-                                Text("Calories: \(item.calories) • Fat: \(item.fat)g • Carbs: \(item.carbs)g • Protein: \(item.protein)g")
-                                    .font(.caption)
-                                    .foregroundColor(.black)
-                                    .padding(.leading)
-                                    .padding(.top, 5)
-                                
-                                Text(item.reason)
-                                    .foregroundColor(.gray)
-                                    .padding(.leading)
-                                    .padding(.top, 5)
-                            }
+                    .shadow(radius: 7)
+                    .padding(10)
+                
+                if isLoading {
+                    ProgressView("Fitting...")
+                        .onAppear {
+                            fetchMenu(for: restaurant, user: user)
                         }
-                        .padding()
+                } else {
+                    List(menuResponse.menuItems.indices, id: \.self) { index in
+                        if let item = safeIndex(index) {
+                            VStack(alignment: .leading) {
+                                Button(action: {
+                                    toggleExpansion(for: index)
+                                }) {
+                                    Text(item.name)
+                                        .foregroundColor(textColor(for: item.category))
+                                }
+                                
+                                if item.isExpanded {
+                                    Text("Calories: \(item.calories) • Fat: \(item.fat)g • Carbs: \(item.carbs)g • Protein: \(item.protein)g")
+                                        .font(.caption)
+                                        .foregroundColor(.black)
+                                        .padding(.leading)
+                                        .padding(.top, 5)
+                                    
+                                    Text(item.reason)
+                                        .foregroundColor(.gray)
+                                        .padding(.leading)
+                                        .padding(.top, 5)
+                                }
+                            }
+                            .padding()
+                        }
                     }
                 }
             }
@@ -53,18 +64,22 @@ struct MenuDetailView: View {
         .navigationBarTitleDisplayMode(.inline)
     }
     
-    private func fetchMenu(for restaurantID: Int, user: User?) {
+    private func fetchMenu(for restaurant: Restaurant, user: User?) {
         guard let user = user else {
             print("User not found")
             return
         }
         
-        AWSMenuService.fetchMenu(for: restaurantID, user: user) { result in
+        AWSMenuService.fetchMenu(for: restaurant, user: user) { result in
             switch result {
             case .success(let menuResponse):
                 DispatchQueue.main.async {
                     self.menuResponse.menuItems = menuResponse.menuItems
                     self.isLoading = false
+                }
+                if let maxIdItem = menuResponse.menuItems.max(by: { $0.id < $1.id }) {
+                    let maxValue = maxIdItem.id
+                    self.restaurant.lastLoaded = maxValue
                 }
             case .failure(let error):
                 print("Error fetching menu items: \(error)")
