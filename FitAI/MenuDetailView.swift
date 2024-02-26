@@ -16,6 +16,9 @@ struct MenuDetailView: View {
     var body: some View {
         NavigationView {
             VStack {
+                Link(destination: mapURL()) {
+                    Text("\(restaurant.address)").font(.subheadline)
+                }
                 MapView(restaurant: restaurant)
                     .frame(height: 200)
                     .clipShape(RoundedRectangle(cornerRadius: 15))
@@ -26,10 +29,12 @@ struct MenuDetailView: View {
                     .padding(10)
                 
                 if isLoading {
+                    Spacer()
                     ProgressView("Fitting...")
                         .onAppear {
                             fetchMenu(for: restaurant, user: user)
                         }
+                    Spacer()
                 } else {
                     List(menuResponse.menuItems.indices, id: \.self) { index in
                         if let item = safeIndex(index) {
@@ -114,6 +119,12 @@ struct MenuDetailView: View {
         default:
             return .black
         }
+    }
+    
+    private func mapURL() -> URL {
+        let encodedAddress = restaurant.address.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        let urlString = "http://maps.apple.com/?address=\(encodedAddress)"
+        return URL(string: urlString)!
     }
 }
 

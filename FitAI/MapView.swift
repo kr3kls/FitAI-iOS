@@ -14,9 +14,9 @@ struct MapView: View {
     
     init(restaurant: Restaurant) {
         self.restaurant = restaurant
-        
+
         let region = MKCoordinateRegion(
-            center: CLLocationCoordinate2D(latitude: restaurant.lattitude, longitude: restaurant.longitude),
+            center: CLLocationCoordinate2D(latitude: Double(restaurant.latitude) ?? 0, longitude: Double(restaurant.longitude) ?? 0),
             span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
         )
         self._position = State(initialValue: .region(region))
@@ -24,7 +24,7 @@ struct MapView: View {
     
     var body: some View {
         Map(position: $position, interactionModes: []) {
-            Marker(restaurant.name, coordinate: CLLocationCoordinate2D(latitude: restaurant.lattitude, longitude: restaurant.longitude))
+            Marker(restaurant.name, coordinate: CLLocationCoordinate2D(latitude: Double(restaurant.latitude) ?? 0, longitude: Double(restaurant.longitude) ?? 0))
         }
     }
 }

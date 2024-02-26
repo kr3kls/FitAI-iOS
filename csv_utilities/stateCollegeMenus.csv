@@ -1,4 +1,4 @@
-,resturant_name,menu_item,item_description,price,address
+,restaurant_name,menu_item,item_description,price,address
 0,Qdoba Mexican Eats,Create Your Own Bowl,"Choice of protein, rice, beans, flavorful salsas, sauces, and toppings. Top it with guacamole and queso for FREE! [Cal 310-330]",Priced by add-ons,"1908 N Atherton St,, State College, PA 16803"
 1,Qdoba Mexican Eats,Create Your Own Burrito,"Choice of protein, rice, beans, flavorful salsas, sauces, and toppings in a warm tortilla.  Top it with guacamole and queso for FREE! [Cal 590-640]",Priced by add-ons,"1908 N Atherton St,, State College, PA 16803"
 2,Qdoba Mexican Eats,3-Cheese Queso & Chips,"Our signature 3-Cheese Queso, served with freshly fried tortilla chips seasoned with salt and lime. [Cal 890]",$7.05,"1908 N Atherton St,, State College, PA 16803"
@@ -611,7 +611,9 @@ Pro Tip: For an additional boost, ask your barista to try this with an extra sho
 573,Starbucks,Cheese Danish,"Flaky, butter croissant dough with soft, warm cheese in the center. 
 
 -VEGETARIAN",$4.55 • 290 Cal.,"232 West College Avenue, State College, PA 16801"
-574,Starbucks,Plain Bagel,"Classic soft, chewy and thick New York–style bagel. Available with cream cheese or butter.- VEGAN- VEGETARIAN",$2.95 • 290 Cal.,"232 West College Avenue, State College, PA 16801"
+574,Starbucks,Plain Bagel,"Classic soft, chewy and thick New York–style bagel. Available with cream cheese or butter.
+- VEGAN
+- VEGETARIAN",$2.95 • 290 Cal.,"232 West College Avenue, State College, PA 16801"
 575,Starbucks,Birthday Cake Pop,"Bite-sized vanilla cake mixed with vanilla buttercream, dipped in pink chocolaty icing and topped with white sprinkles. 
 -VEGETARIAN",$3.55 • 160 Cal.,"232 West College Avenue, State College, PA 16801"
 576,Starbucks,Iced Lemon Loaf,"Citrusy, buttery, moist lemon pound cake topped with a sweet icing.
