@@ -14,7 +14,7 @@ load_dotenv()
 
 def main():
 
-    file_path = "stateCollegeMenus-no_price_address.csv"
+    file_path = "dataset.csv"
 
     # Read the CSV file
     data = read_csv(file_path)
@@ -22,13 +22,11 @@ def main():
     # Classify each item in the CSV file
     for item in data:
         raw_item = classify(json.dumps(item))
-        item["Calories"] = raw_item["calories"]
-        item["Carbs"] = raw_item["carbohydrates"]
-        item["Protein"] = raw_item["protein"]
-        item["Fat"] = raw_item["fat"]
+        item["Category"] = raw_item["Category"]
+        
 
     # Write the classified data to a new CSV file
-    write_csv(data, "stateCollegeMenus-classified.csv")
+    write_csv(data, "categorized_dataset.csv")
    
 
 def read_csv(file_path):
@@ -62,15 +60,13 @@ def classify(item):
     # Instantiate Client
     client = OpenAI(
         api_key=os.environ.get("OPENAI_API_KEY"),
-        # base_url="http://localhost:1234/v1", 
-        # api_key="not-needed"
     )
 
     # Define the completion
     chat_completion = client.chat.completions.create(
         messages=[
             {
-                "role": "system", "content": "You are a professional dietitian. For each item, estimate the macronutrient values. The macronutrients are calories, carbohydrates, protein, and fat. Reply with a JSON object in the following format: {\"calories\": integer, \"carbohydrates\": integer, \"protein\": integer, \"fat\": integer} Ensure property names are in double quotes. Do not return anything except the JSON object. Do not return any preceding or trailing text."
+                "role": "system", "content": "You are a professional dietitian. For each item, Reply with a JSON object in the following format: {\"Category\": integer} The category is a measure of whether or not the provided food item aligns with the user's current fitness level and fitness goals. The user's fields are Age, Weight, Height, Sex, and FitnessGoal. The food choice's fields are restaurant_name, menu_item, Calories, Carbs, Protein,and Fat. Category 1 is a good choice. Category 2 is a moderate choice. Category 3 is a poor choice. Ensure property names are in double quotes. Do not return anything except the JSON object. Do not return any preceding or trailing text."
             },
             {
                 "role": "user", "content": f"{item}",
