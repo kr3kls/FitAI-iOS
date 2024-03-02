@@ -59,6 +59,6 @@ struct RestaurantListView: View {
     }
 }
 
-//#Preview {
-//    RestaurantListView()
-//}
+#Preview {
+    RestaurantListView(userCount: 1)
+}

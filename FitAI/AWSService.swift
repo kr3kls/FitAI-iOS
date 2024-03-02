@@ -24,7 +24,7 @@ class AWSRestaurantService {
                 print("Error fetching restaurants: \(error?.localizedDescription ?? "Unknown error")")
                 return
             }
-            
+
             do {
                 let restaurants = try JSONDecoder().decode([Restaurant].self, from: data)
                 DispatchQueue.main.async {
@@ -42,8 +42,16 @@ class AWSRestaurantService {
 
 class AWSMenuService {
     
-    static func fetchMenu(for restaurantID: Int, user: User, completion: @escaping (Result<MenuResponse, Error>) -> Void) {
-        guard let url = URL(string: AWSAPIManager.baseURL + "items/\(restaurantID)") else {
+    static func fetchMenu(for restaurant: Restaurant, user: User, completion: @escaping (Result<MenuResponse, Error>) -> Void) {
+        var url_suffix = ""
+        
+        if restaurant.lastLoaded > 0 {
+            url_suffix = "items/\(restaurant.id)/\(restaurant.lastLoaded)"
+        } else {
+            url_suffix = "items/\(restaurant.id)"
+        }
+        
+        guard let url = URL(string: AWSAPIManager.baseURL + url_suffix) else {
             print("Invalid URL")
             return
         }
