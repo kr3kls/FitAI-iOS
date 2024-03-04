@@ -25,7 +25,7 @@ struct FeedbackView: View {
             Spacer()
                 .frame(height: 20)
             Text("Let us know what you think!")
-            Text("FitAI@gmail.com")
+            Text("FitAI.Feedback@gmail.com")
             
             Spacer()
 

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreML
 
 struct MenuDetailView: View {
     var restaurant: Restaurant
@@ -52,11 +53,14 @@ struct MenuDetailView: View {
                                         .foregroundColor(.black)
                                         .padding(.leading)
                                         .padding(.top, 5)
-                                    
-                                    Text(item.reason)
-                                        .foregroundColor(.gray)
-                                        .padding(.leading)
-                                        .padding(.top, 5)
+                                    if item.isLoadingDetail {
+                                        ProgressView("Fitting...")
+                                    } else {
+                                        Text(item.reason)
+                                            .foregroundColor(.gray)
+                                            .padding(.leading)
+                                            .padding(.top, 5)
+                                    }
                                 }
                             }
                             .padding()
@@ -69,6 +73,27 @@ struct MenuDetailView: View {
         .navigationBarTitleDisplayMode(.inline)
     }
     
+    private func loadReason(for item: MenuItem, user: User?, restaurant: Restaurant) {
+        guard let user = user else {
+            print("User not found")
+            return
+        }
+        AWSMenuService.loadReason(for: item, user: user, restaurant: restaurant) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let reason):
+                    item.reason = reason
+                    item.isLoadingDetail = false
+                case .failure(let error):
+                    print("Error fetching item reason: \(error)")
+                    item.reason = "Error loading reason"
+                }
+                
+            }
+        }
+    }
+
+    
     private func fetchMenu(for restaurant: Restaurant, user: User?) {
         guard let user = user else {
             print("User not found")
@@ -76,22 +101,43 @@ struct MenuDetailView: View {
         }
         
         AWSMenuService.fetchMenu(for: restaurant, user: user) { result in
-            switch result {
-            case .success(let menuResponse):
-                DispatchQueue.main.async {
-                    self.menuResponse.menuItems = menuResponse.menuItems
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let fetchedMenuItems):
+                    self.menuResponse.menuItems = self.categorize(menuItems: fetchedMenuItems.menuItems, user: user)
                     self.isLoading = false
+                    self.menuResponse.menuItems.forEach { item in
+                        self.loadReason(for: item, user: user, restaurant: restaurant)
+                    }
+                case .failure(let error):
+                    print("Error fetching menu items: \(error)")
                 }
-                if let maxIdItem = menuResponse.menuItems.max(by: { $0.id < $1.id }) {
-                    let maxValue = maxIdItem.id
-                    self.restaurant.lastLoaded = maxValue
-                }
-            case .failure(let error):
-                print("Error fetching menu items: \(error)")
             }
         }
     }
 
+    private func categorize(menuItems: [MenuItem], user: User) -> [MenuItem] {
+        let fitness_goals = ["Lose Weight", "Maintain Weight", "Gain Weight", "Build Muscle", "Improve Fitness"]
+        if let goal = fitness_goals.firstIndex(of: user.fitnessGoal) {
+            let model = try? xgb_cat(configuration: MLModelConfiguration())
+            for (index, item) in menuItems.enumerated() {
+                if let proteinDouble = Double(item.protein),
+                   let caloriesDouble = Double(item.calories),
+                   let fatDouble = Double(item.fat),
+                   let carbsDouble = Double(item.carbs) {
+                    do {
+                        if let category_prediction = try? model?.prediction(Protein: proteinDouble, Calories: caloriesDouble, Fat: fatDouble, Carbohydrates: carbsDouble, FitnessGoal: Double(goal)) {
+                            let category = category_prediction.target
+                            menuItems[index].category = Int(category) + 1
+                        }
+                    }
+                }
+            }
+        }
+        return menuItems
+        
+    }
+    
     private func safeIndex(_ index: Int) -> MenuItem? {
         return index >= 0 && index < menuResponse.menuItems.count ? menuResponse.menuItems[index] : nil
     }

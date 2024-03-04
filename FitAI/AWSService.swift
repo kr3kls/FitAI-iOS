@@ -8,7 +8,7 @@
 import Foundation
 
 class AWSAPIManager {
-    static let baseURL = "https://xau8d9212a.execute-api.us-east-1.amazonaws.com/"
+    static let baseURL = "https://xau8d9212a.execute-api.us-east-1.amazonaws.com/v2/"
 }
 
 class AWSRestaurantService {
@@ -43,45 +43,18 @@ class AWSRestaurantService {
 class AWSMenuService {
     
     static func fetchMenu(for restaurant: Restaurant, user: User, completion: @escaping (Result<MenuResponse, Error>) -> Void) {
-        var url_suffix = ""
         
-        if restaurant.lastLoaded > 0 {
-            url_suffix = "items/\(restaurant.id)/\(restaurant.lastLoaded)"
-        } else {
-            url_suffix = "items/\(restaurant.id)"
-        }
-        
-        guard let url = URL(string: AWSAPIManager.baseURL + url_suffix) else {
+        guard let url = URL(string: AWSAPIManager.baseURL + "items/\(restaurant.id)") else {
             print("Invalid URL")
             return
         }
         
-        let userData: [String: Any] = [
-            "age": user.age,
-            "height": user.height,
-            "weight": user.weight,
-            "sex": user.sex,
-            "selectedFitnessGoal": user.fitnessGoal
-        ]
-        
-        guard let userData = try? JSONSerialization.data(withJSONObject: userData) else {
-            print("Failed to encode user data")
-            completion(.failure(NSError(domain: "Encoding Error", code: 0, userInfo: nil)))
-            return
-        }
-        
         var request = URLRequest(url: url)
-        request.httpMethod = "POST"
+        request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.httpBody = userData
         
         print("Request:", request)
-        if let bodyString = String(data: userData, encoding: .utf8) {
-            print("Request Body:", bodyString)
-        } else {
-            print("Failed to convert body data to string")
-        }
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {
@@ -108,4 +81,51 @@ class AWSMenuService {
             }
         }.resume()
     }
+    
+    static func loadReason(for item: MenuItem, user: User, restaurant: Restaurant, completion: @escaping (Result<String, Error>) -> Void) {
+        let fitnessGoals = ["Lose Weight", "Maintain Weight", "Gain Weight", "Build Muscle", "Improve Fitness"]
+        let fitnessGoal = fitnessGoals.firstIndex(of: user.fitnessGoal) ?? 0
+        
+        guard let url = URL(string: AWSAPIManager.baseURL + "items/reason/\(restaurant.id)/\(item.id)/\(item.category)/\(fitnessGoal)") else {
+            print("Invalid URL")
+            return
+        }
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        print("Request:", request)
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                print("Error fetching reason: \(error?.localizedDescription ?? "Unknown error")")
+                if let httpResponse = response as? HTTPURLResponse {
+                    print("HTTP Status Code:", httpResponse.statusCode)
+                    print("HTTP Headers:", httpResponse.allHeaderFields)
+                }
+                completion(.failure(error ?? NSError(domain: "Unknown Error", code: 0, userInfo: nil)))
+                return
+            }
+                        
+            do {
+                struct ResponseWrapper: Decodable {
+                    struct ResponseContent: Decodable {
+                        let role: String
+                        let content: String
+                    }
+                    let response: ResponseContent
+                }
+
+                let jsonResponse = try JSONDecoder().decode(ResponseWrapper.self, from: data)
+                let reason = jsonResponse.response.content
+                completion(.success(reason))
+            } catch {
+                print("JSON decoding error: \(error)")
+                completion(.failure(error))
+            }
+        }.resume()
+    }
 }
+
