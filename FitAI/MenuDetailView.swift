@@ -54,7 +54,15 @@ struct MenuDetailView: View {
                                         .padding(.leading)
                                         .padding(.top, 5)
                                     if item.isLoadingDetail {
-                                        ProgressView("Fitting...")
+                                        VStack {
+                                            Spacer()
+                                            HStack {
+                                                Spacer() 
+                                                ProgressView("Fitting...")
+                                                Spacer()
+                                            }
+                                            Spacer()
+                                        }
                                     } else {
                                         Text(item.reason)
                                             .foregroundColor(.gray)
