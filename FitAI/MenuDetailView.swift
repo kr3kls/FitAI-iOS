@@ -38,7 +38,7 @@ struct MenuDetailView: View {
                     Spacer()
                 } else {
                     List(menuResponse.menuItems.indices, id: \.self) { index in
-                        if let item = safeIndex(index) {
+                        if safeIndex(index) {
                             MenuItemView(item: menuResponse.menuItems[index])
                                 .onTapGesture { toggleExpansion(for: index) }
                         }
@@ -112,8 +112,8 @@ struct MenuDetailView: View {
         
     }
     
-    private func safeIndex(_ index: Int) -> MenuItem? {
-        return index >= 0 && index < menuResponse.menuItems.count ? menuResponse.menuItems[index] : nil
+    private func safeIndex(_ index: Int) -> Bool {
+        return index >= 0 && index < menuResponse.menuItems.count ? true : false
     }
     
     private func indexExists(_ index: Int) -> Bool {
