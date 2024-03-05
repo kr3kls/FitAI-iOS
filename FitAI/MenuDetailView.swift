@@ -39,39 +39,8 @@ struct MenuDetailView: View {
                 } else {
                     List(menuResponse.menuItems.indices, id: \.self) { index in
                         if let item = safeIndex(index) {
-                            VStack(alignment: .leading) {
-                                Button(action: {
-                                    toggleExpansion(for: index)
-                                }) {
-                                    Text(item.name)
-                                        .foregroundColor(textColor(for: item.category))
-                                }
-                                
-                                if item.isExpanded {
-                                    Text("Calories: \(item.calories) • Fat: \(item.fat)g • Carbs: \(item.carbs)g • Protein: \(item.protein)g")
-                                        .font(.caption)
-                                        .foregroundColor(.black)
-                                        .padding(.leading)
-                                        .padding(.top, 5)
-                                    if item.isLoadingDetail {
-                                        VStack {
-                                            Spacer()
-                                            HStack {
-                                                Spacer() 
-                                                ProgressView("Fitting...")
-                                                Spacer()
-                                            }
-                                            Spacer()
-                                        }
-                                    } else {
-                                        Text(item.reason)
-                                            .foregroundColor(.gray)
-                                            .padding(.leading)
-                                            .padding(.top, 5)
-                                    }
-                                }
-                            }
-                            .padding()
+                            MenuItemView(item: menuResponse.menuItems[index])
+                                .onTapGesture { toggleExpansion(for: index) }
                         }
                     }
                 }
@@ -159,19 +128,6 @@ struct MenuDetailView: View {
             }
             let updatedItems = menuResponse.menuItems
             menuResponse.menuItems = updatedItems
-        }
-    }
-
-    private func textColor(for category: Int) -> Color {
-        switch category {
-        case 1:
-            return .green
-        case 2:
-            return .yellow
-        case 3:
-            return .red
-        default:
-            return .black
         }
     }
     

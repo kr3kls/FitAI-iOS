@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MenuItemView: View {
+    @StateObject var item: MenuItem
+    
     var body: some View {
         VStack(alignment: .leading) {
             Text(item.name)
@@ -38,8 +40,21 @@ struct MenuItemView: View {
         }
         .padding()
     }
+    
+    private func textColor(for category: Int) -> Color {
+        switch category {
+        case 1:
+            return .green
+        case 2:
+            return .yellow
+        case 3:
+            return .red
+        default:
+            return .black
+        }
+    }
 }
 
-#Preview {
-    MenuItemView()
-}
+//#Preview {
+//    MenuItemView()
+//}
