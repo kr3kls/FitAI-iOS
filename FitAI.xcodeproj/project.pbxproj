@@ -59,7 +59,6 @@
 		B98D2F542B8554E500DCEF8F = {
 			isa = PBXGroup;
 			children = (
-				B9CB6AF82B96A3980058D8A7 /* MenuItemView.swift */,
 				B98D2F5F2B8554E500DCEF8F /* FitAI */,
 				B98D2F5E2B8554E500DCEF8F /* Products */,
 			);
@@ -78,6 +77,7 @@
 			children = (
 				B98D2F602B8554E500DCEF8F /* FitAIApp.swift */,
 				B98D2F742B8555B600DCEF8F /* FeedbackView.swift */,
+				B9CB6AF82B96A3980058D8A7 /* MenuItemView.swift */,
 				B98D2F622B8554E500DCEF8F /* ContentView.swift */,
 				B98D2F722B8555A200DCEF8F /* EditUserView.swift */,
 				B98D2F7C2B85561800DCEF8F /* RestaurantListView.swift */,
