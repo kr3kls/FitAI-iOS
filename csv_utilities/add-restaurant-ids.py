@@ -3,10 +3,11 @@ import csv
 
 def main():
     restaurants = []
-    file_path = "stateCollegeMenus-classified.csv"
+    final_menu_path = "stateCollegeMenus-4.csv"
+    restaurants_path = "stateCollegeMenus-restaurants.csv"
 
     # Read the CSV file
-    data = read_csv(file_path)
+    final_menu_data = read_csv(final_menu_path)
 
     # Classify each item in the CSV file
     for item in data:
