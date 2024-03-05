@@ -16,7 +16,7 @@ class MenuItem: ObservableObject, Identifiable, Decodable {
     let carbs: String
     let protein: String
     var category: Int
-    var reason: String
+    @Published var reason: String
     @Published var isExpanded: Bool = false
     @Published var isLoadingDetail: Bool = true
     

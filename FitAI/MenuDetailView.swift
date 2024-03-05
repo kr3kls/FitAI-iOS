@@ -114,9 +114,6 @@ struct MenuDetailView: View {
                 case .success(let fetchedMenuItems):
                     self.menuResponse.menuItems = self.categorize(menuItems: fetchedMenuItems.menuItems, user: user)
                     self.isLoading = false
-                    self.menuResponse.menuItems.forEach { item in
-                        self.loadReason(for: item, user: user, restaurant: restaurant)
-                    }
                 case .failure(let error):
                     print("Error fetching menu items: \(error)")
                 }
@@ -157,11 +154,14 @@ struct MenuDetailView: View {
     private func toggleExpansion(for index: Int) {
         if indexExists(index) {
             menuResponse.menuItems[index].isExpanded.toggle()
+            if menuResponse.menuItems[index].isExpanded && menuResponse.menuItems[index].isLoadingDetail {
+                loadReason(for: menuResponse.menuItems[index], user: user, restaurant: restaurant)
+            }
             let updatedItems = menuResponse.menuItems
             menuResponse.menuItems = updatedItems
         }
     }
-        
+
     private func textColor(for category: Int) -> Color {
         switch category {
         case 1:
