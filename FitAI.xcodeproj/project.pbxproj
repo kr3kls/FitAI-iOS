@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B92E9C5F2B940FC600463729 /* xgb-cat.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B92E9C5E2B940FC600463729 /* xgb-cat.mlmodel */; };
 		B953C47A2B8813150007D3E5 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B953C4792B8813150007D3E5 /* MapView.swift */; };
 		B98D2F612B8554E500DCEF8F /* FitAIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98D2F602B8554E500DCEF8F /* FitAIApp.swift */; };
 		B98D2F632B8554E500DCEF8F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98D2F622B8554E500DCEF8F /* ContentView.swift */; };
@@ -21,9 +22,11 @@
 		B98D2F7B2B85560200DCEF8F /* RestaurantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98D2F7A2B85560200DCEF8F /* RestaurantModel.swift */; };
 		B98D2F7D2B85561800DCEF8F /* RestaurantListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98D2F7C2B85561800DCEF8F /* RestaurantListView.swift */; };
 		B98D2F812B856E2E00DCEF8F /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B98D2F802B856E2E00DCEF8F /* Launch Screen.storyboard */; };
+		B9CB6AF92B96A3980058D8A7 /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB6AF82B96A3980058D8A7 /* MenuItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B92E9C5E2B940FC600463729 /* xgb-cat.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "xgb-cat.mlmodel"; sourceTree = "<group>"; };
 		B953C4792B8813150007D3E5 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		B98D2F5D2B8554E500DCEF8F /* FitAI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitAI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B98D2F602B8554E500DCEF8F /* FitAIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitAIApp.swift; sourceTree = "<group>"; };
@@ -39,6 +42,7 @@
 		B98D2F7A2B85560200DCEF8F /* RestaurantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantModel.swift; sourceTree = "<group>"; };
 		B98D2F7C2B85561800DCEF8F /* RestaurantListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListView.swift; sourceTree = "<group>"; };
 		B98D2F802B856E2E00DCEF8F /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		B9CB6AF82B96A3980058D8A7 /* MenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,7 @@
 		B98D2F542B8554E500DCEF8F = {
 			isa = PBXGroup;
 			children = (
+				B9CB6AF82B96A3980058D8A7 /* MenuItemView.swift */,
 				B98D2F5F2B8554E500DCEF8F /* FitAI */,
 				B98D2F5E2B8554E500DCEF8F /* Products */,
 			);
@@ -78,6 +83,7 @@
 				B98D2F7C2B85561800DCEF8F /* RestaurantListView.swift */,
 				B98D2F7A2B85560200DCEF8F /* RestaurantModel.swift */,
 				B98D2F762B8555CE00DCEF8F /* MenuDetailView.swift */,
+				B92E9C5E2B940FC600463729 /* xgb-cat.mlmodel */,
 				B953C4792B8813150007D3E5 /* MapView.swift */,
 				B98D2F782B8555EC00DCEF8F /* MenuItemModel.swift */,
 				B98D2F642B8554E600DCEF8F /* Assets.xcassets */,
@@ -170,9 +176,11 @@
 			files = (
 				B98D2F632B8554E500DCEF8F /* ContentView.swift in Sources */,
 				B98D2F7B2B85560200DCEF8F /* RestaurantModel.swift in Sources */,
+				B9CB6AF92B96A3980058D8A7 /* MenuItemView.swift in Sources */,
 				B98D2F732B8555A200DCEF8F /* EditUserView.swift in Sources */,
 				B953C47A2B8813150007D3E5 /* MapView.swift in Sources */,
 				B98D2F7D2B85561800DCEF8F /* RestaurantListView.swift in Sources */,
+				B92E9C5F2B940FC600463729 /* xgb-cat.mlmodel in Sources */,
 				B98D2F6F2B85554C00DCEF8F /* UserModel.swift in Sources */,
 				B98D2F792B8555EC00DCEF8F /* MenuItemModel.swift in Sources */,
 				B98D2F772B8555CE00DCEF8F /* MenuDetailView.swift in Sources */,
