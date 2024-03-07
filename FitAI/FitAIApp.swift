@@ -10,9 +10,12 @@ import SwiftData
 
 @main
 struct FitAIApp: App {
+    @StateObject var healthService = HealthService()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(healthService)
         }
         .modelContainer(for: User.self)
     }
