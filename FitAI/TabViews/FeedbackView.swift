@@ -33,10 +33,10 @@ struct FeedbackView: View {
             
             Spacer()
             
-            Image("powered-by-openai-badge-filled-on-dark")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 150)
+//            Image("powered-by-openai-badge-filled-on-dark")
+//                .resizable()
+//                .aspectRatio(contentMode: .fit)
+//                .frame(width: 150)
         }
         .padding()
     }
