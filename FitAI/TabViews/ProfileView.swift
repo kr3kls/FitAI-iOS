@@ -40,9 +40,6 @@ struct ProfileView: View {
                 }
                 .frame(maxHeight: 75)
                 VStack {
-                    Text("Lets \(users[0].fitnessGoal) Together!")
-                        .font(.headline)
-                    
                     LazyVGrid(columns: Array(repeating: GridItem(spacing: 20), count: 2)) {
                         ForEach(healthService.activities.sorted(by: { $0.value.id < $1.value.id }), id: \.key) { item in
                             HealthCardView(healthCard: item.value)
