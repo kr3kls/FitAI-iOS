@@ -23,4 +23,12 @@ class Restaurant: Identifiable, Decodable {
         case latitude = "latitude"
         case longitude = "longitude"
     }
+    
+    init(id: Int, name: String, address: String, latitude: String, longitude: String) {
+            self.id = id
+            self.name = name
+            self.address = address
+            self.latitude = latitude
+            self.longitude = longitude
+        }
 }

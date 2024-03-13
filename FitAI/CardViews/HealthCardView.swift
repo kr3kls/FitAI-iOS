@@ -21,31 +21,34 @@ struct HealthCardView: View {
     
     var body: some View {
         ZStack {
-            Color(uiColor: .systemGray6)
+            Color("FitLightBlue")
                 .cornerRadius(15)
             
-            VStack {
-                HStack(alignment: .top) {
+            VStack(spacing: 10) {
+                HStack(alignment: .top, spacing: 10) {
                     VStack(alignment: .leading, spacing: 5) {
                         Text(healthCard.label)
-                            .font(.system(size: 16))
+                            .font(.custom("LeagueSpartan-Bold", size: 18))
+                            .foregroundStyle(Color("FitDarkBlue"))
                         
                         Text(healthCard.subLabel)
-                            .font(.system(size: 12))
+                            .font(.custom("Koulen-Regular", size: 18))
                     }
                     Spacer()
                     
                     Image(systemName: healthCard.icon)
-                        .foregroundColor(healthCard.iconColor)
+                        .foregroundStyle(healthCard.iconColor)
+                        .shadow(color: .black, radius: 5, x: 2, y: 2)
                 }
                 
                 Text(healthCard.data)
-                    .font(.system(size: 24))
-                    .foregroundColor(healthCard.iconColor)
-                    .padding()
+                    .font(.custom("LeagueSpartan-Bold", size: 24))
+                    .foregroundStyle(Color("FitDarkBlue"))
+                    .padding(.horizontal)
             }
             .padding()
         }
+        .padding()
     }
 }
 
