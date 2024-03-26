@@ -6,48 +6,116 @@
 //
 
 import SwiftUI
+import SwiftData
 import CoreML
 
 struct MenuDetailView: View {
-    var restaurant: Restaurant
+    @Environment(\.modelContext) var modelContext
+    @Query var users: [User]
     @StateObject private var menuResponse = MenuResponse()
     @State private var isLoading: Bool = true
-    var user: User?
+    @Binding var selectedRestaurant: Restaurant
     
     var body: some View {
-        NavigationView {
-            VStack {
-                Link(destination: mapURL()) {
-                    Text("\(restaurant.address)").font(.subheadline)
-                }
-                MapView(restaurant: restaurant)
-                    .frame(height: 200)
-                    .clipShape(RoundedRectangle(cornerRadius: 15))
-                    .overlay {
-                        RoundedRectangle(cornerRadius: 15).stroke(.gray, lineWidth: 4)
+        ScrollView {
+            ZStack {
+                RoundedRectangle(cornerRadius: 15.0)
+                    .fill(Color("FitDarkBlue"))
+                    .padding()
+                VStack(spacing: 0) {
+                    Spacer()
+                    HStack {
+                        Spacer()
+                        Text(selectedRestaurant.name)
+                            .font(.custom("LeagueSpartan-Bold", size: 24))
+                            .multilineTextAlignment(.center)
+                            .foregroundStyle(.white)
+                        Spacer()
                     }
-                    .shadow(radius: 7)
-                    .padding(10)
-                
-                if isLoading {
+                    HStack {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 15.0)
+                                .fill(.white)
+                                .padding()
+                            HStack {
+                                Link(destination: mapURL()) {
+                                    Text("\(selectedRestaurant.address)")
+                                        .font(.custom("Koulen-Regular", size: 14))
+                                        .accentColor(.black)
+                                }
+                                .padding()
+                            }
+                        }
+                        .padding(.horizontal, 20)
+                    }
+                    HStack {
+                        MapView(restaurant: selectedRestaurant)
+                            .frame(width: 250, height: 150)
+                            .clipShape(RoundedRectangle(cornerRadius: 15))
+                            .overlay {
+                                RoundedRectangle(cornerRadius: 15).stroke(.gray, lineWidth: 4)
+                            }
+                            .shadow(radius: 7)
+                            .padding(10)
+                    }
+                    Spacer()
+                }
+                .padding()
+            }
+            
+            if isLoading {
+                HStack {
                     Spacer()
                     ProgressView("Fitting...")
                         .onAppear {
-                            fetchMenu(for: restaurant, user: user)
+                            fetchMenu(for: selectedRestaurant, user: users[0])
                         }
                     Spacer()
-                } else {
-                    List(menuResponse.menuItems.indices, id: \.self) { index in
-                        if safeIndex(index) {
-                            MenuItemView(item: menuResponse.menuItems[index])
-                                .onTapGesture { toggleExpansion(for: index) }
+                }
+                .padding()
+            } else {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 15.0)
+                        .fill(Color("FitLightBlue"))
+                        .padding()
+    
+                    VStack(spacing: 0) {
+                        Spacer()
+                            .frame(height: 40)
+                        HStack(spacing: 0) {
+                            Text("Menu")
+                                .font(.custom("LeagueSpartan-Bold", size: 36))
+                                .foregroundColor(Color("FitDarkBlue"))
                         }
+                        
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 15.0)
+                                .fill(.white)
+                                .padding()
+                            VStack(spacing: 0) {
+                                Spacer()
+                                ForEach(menuResponse.menuItems.indices, id: \.self) { index in
+                                    if safeIndex(index) {
+                                        HStack {
+                                            MenuItemView(item: menuResponse.menuItems[index])
+                                        }
+                                        .padding(.horizontal, 20)
+                                        .onTapGesture { toggleExpansion(for: index) }
+                                        Rectangle()
+                                            .frame(height: 1)
+                                            .foregroundColor(Color("FitDarkBlue"))
+                                            .padding()
+                                    }
+                                }
+                                Spacer()
+                            }
+                            .padding()
+                        }
+                        .padding()
                     }
                 }
             }
         }
-        .navigationTitle("\(restaurant.name) Menu")
-        .navigationBarTitleDisplayMode(.inline)
     }
     
     private func loadReason(for item: MenuItem, user: User?, restaurant: Restaurant) {
@@ -124,7 +192,7 @@ struct MenuDetailView: View {
         if indexExists(index) {
             menuResponse.menuItems[index].isExpanded.toggle()
             if menuResponse.menuItems[index].isExpanded && menuResponse.menuItems[index].isLoadingDetail {
-                loadReason(for: menuResponse.menuItems[index], user: user, restaurant: restaurant)
+                loadReason(for: menuResponse.menuItems[index], user: users[0], restaurant: selectedRestaurant)
             }
             let updatedItems = menuResponse.menuItems
             menuResponse.menuItems = updatedItems
@@ -132,7 +200,7 @@ struct MenuDetailView: View {
     }
     
     private func mapURL() -> URL {
-        let encodedAddress = restaurant.address.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        let encodedAddress = selectedRestaurant.address.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         let urlString = "http://maps.apple.com/?address=\(encodedAddress)"
         return URL(string: urlString)!
     }

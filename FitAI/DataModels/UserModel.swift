@@ -16,6 +16,10 @@ class User {
     var weight: Int
     var sex: String
     var fitnessGoal: String
+    var validated: Bool = false
+    var badAgeFlag: Bool = false
+    var badHeightFlag: Bool = false
+    var badWeightFlag: Bool = false
     
     init(name: String, age: Int, height: Int, weight: Int, sex: String, fitnessGoal: String) {
         self.name = name
