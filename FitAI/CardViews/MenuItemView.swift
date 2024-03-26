@@ -11,34 +11,42 @@ struct MenuItemView: View {
     @StateObject var item: MenuItem
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Text(item.name)
-                .foregroundColor(textColor(for: item.category))
+        VStack {
+            Spacer()
+            HStack {
+                Text(item.name)
+                    .font(.custom("LeagueSpartan-Bold", size: 18))
+                    .foregroundColor(textColor(for: item.category))
+                Spacer()
+                if !item.isExpanded {
+                    Image("infoButton")
+                        .resizable()
+                        .frame(width: 25, height: 25)
+                }
+            }
+            Spacer()
+                .frame(height: 5)
             if item.isExpanded {
+                
                 Text("Calories: \(item.calories) • Fat: \(item.fat)g • Carbs: \(item.carbs)g • Protein: \(item.protein)g")
-                    .font(.caption)
+                    .font(.custom("LeagueSpartan-Bold", size: 12))
                     .foregroundColor(.black)
-                    .padding(.leading)
                     .padding(.top, 5)
+                Spacer()
                 if item.isLoadingDetail {
-                    VStack {
-                        Spacer()
-                        HStack {
-                            Spacer()
-                            ProgressView("Fitting...")
-                            Spacer()
-                        }
-                        Spacer()
-                    }
+                    Spacer()
+                    ProgressView("Fitting...")
+                    Spacer()
                 } else {
+                    
                     Text(item.reason)
-                        .foregroundColor(.gray)
-                        .padding(.leading)
-                        .padding(.top, 5)
+                        .font(.custom("Koulen-Regular", size: 14))
+                        .foregroundStyle(.gray)
+                        .fixedSize(horizontal: false, vertical: true)
+                    
                 }
             }
         }
-        .padding()
     }
     
     private func textColor(for category: Int) -> Color {

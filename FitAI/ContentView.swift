@@ -11,30 +11,28 @@ import SwiftData
 struct ContentView: View {
     @Environment(\.modelContext) var modelContext
     @Query var users: [User]
+    @Binding var view: String
+    @Binding var selectedRestaurant: Restaurant
     
     var body: some View {
-        TabView {
-            ProfileView()
-                .tabItem {
-                    Image(systemName: "person.crop.circle")
-                    Text("Profile")
-                }
+
+        VStack {
+            HeaderView()
+                .frame(maxWidth: .infinity, maxHeight: 100)
+            Spacer()
+                .frame(height: 10)
             
-            RestaurantListView(userCount: users.count, user: users.first)
-                .tabItem {
-                    Image(systemName: "storefront.circle")
-                    Text("Restaurants")
-                }
+            BodyView(view: $view, selectedRestaurant: $selectedRestaurant)
             
-            FeedbackView()
-                .tabItem {
-                    Image(systemName: "paperplane.circle")
-                    Text("Feedback")
-                }
+            Spacer()
+                .frame(height: 10)
+            
+            FooterView(view: $view)
+                .frame(maxWidth: .infinity, maxHeight: 100)
         }
     }
 }
 
 //#Preview {
-//    ContentView()
+//    ContentView(view: "ProfileView")
 //}

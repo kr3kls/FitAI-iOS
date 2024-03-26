@@ -26,6 +26,11 @@
 		B98D2F812B856E2E00DCEF8F /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B98D2F802B856E2E00DCEF8F /* Launch Screen.storyboard */; };
 		B9CB6AF92B96A3980058D8A7 /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB6AF82B96A3980058D8A7 /* MenuItemView.swift */; };
 		B9DEC3322B994BC000202B7E /* HealthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DEC3312B994BC000202B7E /* HealthService.swift */; };
+		B9DEC3632B9FB28600202B7E /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DEC3622B9FB28600202B7E /* HeaderView.swift */; };
+		B9DEC3662B9FB2F700202B7E /* LeagueSpartan-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B9DEC3652B9FB2F700202B7E /* LeagueSpartan-Bold.ttf */; };
+		B9DEC36C2B9FB8B800202B7E /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DEC36B2B9FB8B800202B7E /* FooterView.swift */; };
+		B9DEC36E2B9FB9E000202B7E /* BodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DEC36D2B9FB9E000202B7E /* BodyView.swift */; };
+		B9DEC3742B9FD50200202B7E /* Koulen-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B9DEC3732B9FD50200202B7E /* Koulen-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +55,12 @@
 		B9CB6AF82B96A3980058D8A7 /* MenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
 		B9DEC3312B994BC000202B7E /* HealthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthService.swift; sourceTree = "<group>"; };
 		B9DEC3332B994DC200202B7E /* FitAI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FitAI.entitlements; sourceTree = "<group>"; };
+		B9DEC3622B9FB28600202B7E /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		B9DEC3652B9FB2F700202B7E /* LeagueSpartan-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueSpartan-Bold.ttf"; sourceTree = "<group>"; };
+		B9DEC3682B9FB56700202B7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		B9DEC36B2B9FB8B800202B7E /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
+		B9DEC36D2B9FB9E000202B7E /* BodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyView.swift; sourceTree = "<group>"; };
+		B9DEC3732B9FD50200202B7E /* Koulen-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Koulen-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +141,10 @@
 		B98D2F5F2B8554E500DCEF8F /* FitAI */ = {
 			isa = PBXGroup;
 			children = (
+				B9DEC3682B9FB56700202B7E /* Info.plist */,
+				B9DEC3652B9FB2F700202B7E /* LeagueSpartan-Bold.ttf */,
+				B9DEC3732B9FD50200202B7E /* Koulen-Regular.ttf */,
+				B9DEC3612B9FB24A00202B7E /* ComponentViews */,
 				B9DEC3332B994DC200202B7E /* FitAI.entitlements */,
 				B95E15B52B9932C000021728 /* SubTabViews */,
 				B95E15B42B99321B00021728 /* CardViews */,
@@ -152,6 +167,16 @@
 				B98D2F672B8554E600DCEF8F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B9DEC3612B9FB24A00202B7E /* ComponentViews */ = {
+			isa = PBXGroup;
+			children = (
+				B9DEC3622B9FB28600202B7E /* HeaderView.swift */,
+				B9DEC36B2B9FB8B800202B7E /* FooterView.swift */,
+				B9DEC36D2B9FB9E000202B7E /* BodyView.swift */,
+			);
+			path = ComponentViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,6 +237,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9DEC3742B9FD50200202B7E /* Koulen-Regular.ttf in Resources */,
+				B9DEC3662B9FB2F700202B7E /* LeagueSpartan-Bold.ttf in Resources */,
 				B98D2F812B856E2E00DCEF8F /* Launch Screen.storyboard in Resources */,
 				B98D2F682B8554E600DCEF8F /* Preview Assets.xcassets in Resources */,
 				B98D2F652B8554E600DCEF8F /* Assets.xcassets in Resources */,
@@ -228,13 +255,16 @@
 				B95E15B02B992FC300021728 /* HealthCardView.swift in Sources */,
 				B98D2F632B8554E500DCEF8F /* ContentView.swift in Sources */,
 				B98D2F7B2B85560200DCEF8F /* RestaurantModel.swift in Sources */,
+				B9DEC36C2B9FB8B800202B7E /* FooterView.swift in Sources */,
 				B9CB6AF92B96A3980058D8A7 /* MenuItemView.swift in Sources */,
 				B98D2F732B8555A200DCEF8F /* EditUserView.swift in Sources */,
 				B9DEC3322B994BC000202B7E /* HealthService.swift in Sources */,
+				B9DEC3632B9FB28600202B7E /* HeaderView.swift in Sources */,
 				B953C47A2B8813150007D3E5 /* MapView.swift in Sources */,
 				B98D2F7D2B85561800DCEF8F /* RestaurantListView.swift in Sources */,
 				B95E15B72B99334400021728 /* ProfileView.swift in Sources */,
 				B92E9C5F2B940FC600463729 /* xgb-cat.mlmodel in Sources */,
+				B9DEC36E2B9FB9E000202B7E /* BodyView.swift in Sources */,
 				B98D2F6F2B85554C00DCEF8F /* UserModel.swift in Sources */,
 				B98D2F792B8555EC00DCEF8F /* MenuItemModel.swift in Sources */,
 				B98D2F772B8555CE00DCEF8F /* MenuDetailView.swift in Sources */,
@@ -379,6 +409,7 @@
 				DEVELOPMENT_TEAM = 5YAJR7M534;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FitAI/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Please allow access to enable all application features.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "This data is used to display daily step count and and active calories burned in the app.";
@@ -394,7 +425,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.5;
+				MARKETING_VERSION = 0.7;
 				PRODUCT_BUNDLE_IDENTIFIER = edu.psu.nittanyaichallenge.athleantech.FitAI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -420,6 +451,7 @@
 				DEVELOPMENT_TEAM = 5YAJR7M534;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FitAI/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Please allow access to enable all application features.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "This data is used to display daily step count and and active calories burned in the app.";
@@ -435,7 +467,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.5;
+				MARKETING_VERSION = 0.7;
 				PRODUCT_BUNDLE_IDENTIFIER = edu.psu.nittanyaichallenge.athleantech.FitAI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
