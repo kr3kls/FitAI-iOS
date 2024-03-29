@@ -42,6 +42,6 @@ struct FeedbackView: View {
     }
 }
 
-#Preview {
-    FeedbackView()
-}
+// #Preview {
+//     FeedbackView()
+// }

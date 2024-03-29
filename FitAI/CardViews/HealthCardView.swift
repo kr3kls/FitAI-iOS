@@ -52,6 +52,6 @@ struct HealthCardView: View {
     }
 }
 
-#Preview {
-    HealthCardView(healthCard: HealthCard(id: 0, label: "Daily Steps", subLabel: "Goal: 10,000", icon: "figure.walk", data: "5,327", iconColor: .green))
-}
+// #Preview {
+//     HealthCardView(healthCard: HealthCard(id: 0, label: "Daily Steps", subLabel: "Goal: 10,000", icon: "figure.walk", data: "5,327", iconColor: .green))
+// }
